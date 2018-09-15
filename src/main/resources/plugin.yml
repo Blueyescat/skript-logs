@@ -1,0 +1,9 @@
+name: skript-logs
+description: An addon to listen to log messages in Skript. And more!
+
+author: Blueyescat
+website: https://github.com/Blueyescat
+
+version: @version@
+
+main: me.blueyescat.skriptlogs.SkriptLogs

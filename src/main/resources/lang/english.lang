@@ -1,0 +1,10 @@
+version: 2.2
+log levels:
+    all: all
+    debug: debug, a debug, debugs
+    error: error, an error, severe, a severe, severe errors
+    fatal: fatal, a fatal, fatals, a fatal error, fatal errors
+    info: info, an info, infos, information, an information, informations
+    off: off, a off, off log, a off log, off logs
+    trace: trace, traces
+    warn: warn, a warn, warns, warning, a warning, warnings

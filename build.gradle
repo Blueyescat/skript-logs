@@ -1,0 +1,37 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+group = 'me.blueyescat.skriptlogs'
+version = '0.1.0'
+
+apply plugin: 'java'
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        url = 'http://maven.njol.ch/repo/'
+    }
+}
+
+processResources {
+    filter(ReplaceTokens, tokens: [version: version])
+}
+
+dependencies {
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.11.1'
+    implementation 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+    implementation 'ch.njol:skript:2.2-SNAPSHOT'
+}
+
+jar {
+    archiveName = "skript-logs.$extension"
+}
