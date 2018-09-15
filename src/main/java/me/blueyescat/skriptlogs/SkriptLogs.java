@@ -30,7 +30,7 @@ public class SkriptLogs extends JavaPlugin {
         if (getServer().getPluginManager().getPlugin("Skript") != null) {
             // Addon
             try {
-                SkriptAddon addonInstance = Skript.registerAddon(this).setLanguageFileDirectory("lang");;
+                SkriptAddon addonInstance = Skript.registerAddon(this).setLanguageFileDirectory("lang");
                 addonInstance.loadClasses("me.blueyescat.skriptlogs", "skript");
             } catch (IOException e) {
                 e.printStackTrace();

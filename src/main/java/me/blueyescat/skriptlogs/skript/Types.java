@@ -1,7 +1,5 @@
 package me.blueyescat.skriptlogs.skript;
 
-import java.util.Locale;
-
 import org.apache.logging.log4j.spi.StandardLevel;
 import org.eclipse.jdt.annotation.Nullable;
 
@@ -54,8 +52,9 @@ public class Types {
 
 				}));
 
+		// Log levels have a type just for enum values. They should act like strings.
 		Converters.registerConverter(StandardLevel.class, String.class, (Converter<StandardLevel, String>) logLevel ->
-				logLevel.toString().toLowerCase(Locale.ENGLISH)
+				levels.toString(logLevel, 0)
 		);
 
 	}

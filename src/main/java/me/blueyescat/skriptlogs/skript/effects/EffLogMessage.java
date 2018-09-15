@@ -32,8 +32,8 @@ public class EffLogMessage extends Effect {
 	static {
 		Skript.registerEffect(EffLogMessage.class,
 				"(log|print [in]) %loglevel% [[with [the]] message[s]] %strings%",
-						"send %loglevel% [[with [the]] message[s]] %strings% to [the] console",
-						"print [in] %strings%");
+				"send %loglevel% [[with [the]] message[s]] %strings% to [the] console",
+				"print [in] %strings%");
 	}
 
 	@SuppressWarnings("null")
