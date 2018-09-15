@@ -3,6 +3,7 @@ package me.blueyescat.skriptlogs.skript.expressions;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
+import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
@@ -32,6 +33,10 @@ public class ExprLogMessage extends SimpleExpression<String> {
 
 	@Override
 	public boolean init(final Expression<?>[] exprs, final int matchedPattern, final Kleenean isDelayed, final ParseResult parseResult) {
+		if (!ScriptLoader.isCurrentEvent(LogEvt.class)) {
+			Skript.error("The logged message expression can't be used outside of a log event");
+			return false;
+		}
 		return true;
 	}
 
