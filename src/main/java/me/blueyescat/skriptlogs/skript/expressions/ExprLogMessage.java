@@ -27,7 +27,7 @@ import me.blueyescat.skriptlogs.util.LogEvt;
 public class ExprLogMessage extends SimpleExpression<String> {
 
 	static {
-		Skript.registerExpression(ExprLogMessage.class, String.class, ExpressionType.SIMPLE, "[the] [log[ged]] message");
+		Skript.registerExpression(ExprLogMessage.class, String.class, ExpressionType.SIMPLE, "[the] log[ged] message");
 	}
 
 	@Override
