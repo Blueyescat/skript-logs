@@ -2,8 +2,8 @@
 An addon to listen to log messages in Skript. And more!
 
 ### Relevant Links
+- [Documentation](https://skripthub.net/docs/?addon=skript-logs)
 - [Releases](https://github.com/Blueyescat/skript-logs/releases)
-- ~~[Skript Hub Documentation](https://skripthub.net/docs/?addon=skript-logs)~~ (soon)
 - [bStats](https://bstats.org/plugin/bukkit/skript-logs)
 
 #### Discord
