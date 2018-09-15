@@ -3,6 +3,7 @@ An addon to listen to log messages in Skript. And more!
 
 ### Relevant Links
 - [Documentation](https://skripthub.net/docs/?addon=skript-logs)
+- [Examples](https://github.com/Blueyescat/skript-logs/wiki/Examples)
 - [Releases](https://github.com/Blueyescat/skript-logs/releases)
 - [bStats](https://bstats.org/plugin/bukkit/skript-logs)
 
