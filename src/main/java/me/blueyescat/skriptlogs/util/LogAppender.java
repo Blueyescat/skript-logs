@@ -12,11 +12,12 @@ public class LogAppender extends AbstractAppender {
 		super("skript-logs", null, null, false);
 		Logger rootLogger = (Logger) LogManager.getRootLogger();
 		rootLogger.addAppender(this);
+		rootLogger.addFilter(new LogFilter());
 	}
 
 	@Override
 	public void append(LogEvent e) {
-		LogEvt logEvent = new LogEvt(e, e.getMessage());
+		LogEvt logEvent = new LogEvt(e);
 		Bukkit.getServer().getPluginManager().callEvent(logEvent);
 	}
 
