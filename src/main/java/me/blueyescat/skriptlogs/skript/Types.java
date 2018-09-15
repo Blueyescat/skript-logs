@@ -20,7 +20,7 @@ public class Types {
 				.user("log levels??")
 				.name("Log Level")
 				.description("")
-				.usage(levels.getAllNames())
+				.usage("info, warning, error, fatal, trace, debug, off, all")
 				.examples("")
 				.since("0.1.0")
 				.defaultExpression(new EventValueExpression<>(StandardLevel.class))
