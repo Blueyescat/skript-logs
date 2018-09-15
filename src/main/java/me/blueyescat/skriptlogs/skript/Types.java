@@ -1,13 +1,17 @@
 package me.blueyescat.skriptlogs.skript;
 
+import java.util.Locale;
+
 import org.apache.logging.log4j.spi.StandardLevel;
 import org.eclipse.jdt.annotation.Nullable;
 
 import ch.njol.skript.classes.ClassInfo;
+import ch.njol.skript.classes.Converter;
 import ch.njol.skript.classes.Parser;
 import ch.njol.skript.expressions.base.EventValueExpression;
 import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.registrations.Classes;
+import ch.njol.skript.registrations.Converters;
 import ch.njol.skript.util.EnumUtils;
 
 /**
@@ -49,5 +53,10 @@ public class Types {
 					}
 
 				}));
+
+		Converters.registerConverter(StandardLevel.class, String.class, (Converter<StandardLevel, String>) logLevel ->
+				logLevel.toString().toLowerCase(Locale.ENGLISH)
+		);
+
 	}
 }
