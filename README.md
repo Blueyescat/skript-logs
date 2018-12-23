@@ -9,6 +9,7 @@ An addon to listen to log messages in Skript. And more!
 
 #### Discord
 - Blueyescat#0733
+- [**My personal Discord Server**](https://discord.gg/ayvQQtq) (Global)
 - [Skript Hub Discord Server](https://skripthub.net/discord) (Global)
 - [Skript Chat Discord Server](https://discord.gg/tMhwDmC) (Global)
 - [Skript Topluluğu Discord Server](https://discord.gg/UuNuz5Y) (Turkish)
