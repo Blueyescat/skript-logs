@@ -44,8 +44,8 @@ public class EffLogMessage extends Effect {
 
 	private boolean usedPrint;
 
-	@SuppressWarnings({"unchecked", "null"})
 	@Override
+	@SuppressWarnings("unchecked")
 	public boolean init(final Expression<?>[] exprs, final int matchedPattern, final Kleenean isDelayed, final ParseResult parser) {
 		usedPrint = matchedPattern == 2;
 		if (!usedPrint)

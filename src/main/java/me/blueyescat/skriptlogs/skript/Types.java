@@ -16,10 +16,11 @@ import ch.njol.skript.util.EnumUtils;
  * @author Blueyescat
  */
 public class Types {
+
 	static {
 		final EnumUtils<StandardLevel> levels = new EnumUtils<>(StandardLevel.class, "log levels");
 		Classes.registerClass(new ClassInfo<>(StandardLevel.class, "loglevel")
-				.user("log levels??")
+				.user("log ?levels?")
 				.name("Log Level")
 				.description("")
 				.usage("info, warning, error, fatal, trace, debug, off, all")
@@ -39,8 +40,8 @@ public class Types {
 						return levels.toString(o, flags);
 					}
 
-					@SuppressWarnings("null")
 					@Override
+					@SuppressWarnings("null")
 					public String toVariableNameString(StandardLevel o) {
 						return o.name();
 					}
@@ -58,4 +59,5 @@ public class Types {
 		);
 
 	}
+
 }

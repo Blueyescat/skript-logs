@@ -1,21 +1,20 @@
 package me.blueyescat.skriptlogs;
 
+import java.io.IOException;
+
+import org.apache.logging.log4j.core.appender.AbstractAppender;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 
 import me.blueyescat.skriptlogs.util.LogAppender;
 import me.blueyescat.skriptlogs.util.Metrics;
 
-import org.apache.logging.log4j.core.appender.AbstractAppender;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.IOException;
-
 public class SkriptLogs extends JavaPlugin {
 
     private static SkriptLogs instance;
     private static SkriptAddon addonInstance;
-	private static AbstractAppender logAppender;
 
     public SkriptLogs() {
         if (instance == null) {
@@ -27,30 +26,26 @@ public class SkriptLogs extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (getServer().getPluginManager().getPlugin("Skript") != null) {
-            // Addon
-            try {
-                SkriptAddon addonInstance = Skript.registerAddon(this).setLanguageFileDirectory("lang");
-                addonInstance.loadClasses("me.blueyescat.skriptlogs", "skript");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+		if (!Skript.isAcceptRegistrations()) {
+			getServer().getPluginManager().disablePlugin(this);
+			getLogger().severe("skript-logs can't be loaded when the server is already loaded! Plugin is disabled.");
+			return;
+		}
 
-			new LogAppender().start();
+		try {
+			SkriptAddon addonInstance = Skript.registerAddon(this).setLanguageFileDirectory("lang");
+			addonInstance.loadClasses("me.blueyescat.skriptlogs", "skript");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-            // Metrics
-            getLogger().info("Starting metrics...");
-            Metrics metrics = new Metrics(getInstance());
-            metrics.addCustomChart(new Metrics.SimplePie("skript_version", () ->
-                    getServer().getPluginManager().getPlugin("Skript").getDescription().getVersion()));
-            getLogger().info("And done!");
-        } else {
-            getServer().getPluginManager().disablePlugin(this);
-            getLogger().severe("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-            getLogger().severe("Skript not found, plugin is disabled.");
-            getLogger().severe("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        }
-        getLogger().info("Finished loading!");
+		new LogAppender().start();
+
+        Metrics metrics = new Metrics(getInstance());
+		metrics.addCustomChart(new Metrics.SimplePie("skript_version", () ->
+				Skript.getInstance().getDescription().getVersion()));
+		getLogger().info("Started metrics!");
+		getLogger().info("Finished loading!");
     }
 
     public static SkriptAddon getAddonInstance() {
