@@ -5,6 +5,9 @@ import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.appender.AbstractAppender;
 import org.bukkit.Bukkit;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import me.blueyescat.skriptlogs.SkriptLogs;
 
 public class LogAppender extends AbstractAppender {
 
@@ -17,7 +20,11 @@ public class LogAppender extends AbstractAppender {
 	@Override
 	public void append(LogEvent e) {
 		LogEvt logEvent = new LogEvt(e, e.getMessage());
-		Bukkit.getServer().getPluginManager().callEvent(logEvent);
+		new BukkitRunnable() {
+			public void run() {
+				Bukkit.getServer().getPluginManager().callEvent(logEvent);
+			}
+		}.runTask(SkriptLogs.getInstance());
 	}
 
 }
