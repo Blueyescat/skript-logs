@@ -8,4 +8,4 @@ website: https://github.com/Blueyescat/skript-logs
 depend: [Skript]
 
 main: me.blueyescat.skriptlogs.SkriptLogs
-api-version: 1.13
+api-version: 1.14
