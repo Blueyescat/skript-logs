@@ -19,6 +19,8 @@ public class LogAppender extends AbstractAppender {
 
 	@Override
 	public void append(LogEvent e) {
+		if (!SkriptLogs.getInstance().isEnabled())
+			return;
 		LogEvt logEvent = new LogEvt(e, e.getMessage());
 		new BukkitRunnable() {
 			public void run() {
